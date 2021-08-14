@@ -1,0 +1,31 @@
+{
+  "name": "ucwid",
+  "version": "0.1.0",
+  "description": "A distributed identity base on two **CWID**s and other information.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },"scripts": {
+    "test": "ava test/index.js & http-server &  open http://localhost:8080/test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copious-world/UCWID.git"
+  },
+  "keywords": [
+    "distributed",
+    "identity",
+    "CWID",
+    "DID", "CID"
+  ],
+  "author": "Richard Leddy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/copious-world/UCWID/issues"
+  },
+  "homepage": "https://github.com/copious-world/UCWID#readme",
+  "funding": {
+    "type" : "GitHub Sponsors",
+    "url" : "https://github.com/sponsors/copious-world"
+  }
+}
