@@ -1,11 +1,12 @@
 {
   "name": "ucwid",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A distributed identity base on two **CWID**s and other information.",
   "main": "index.js",
   "directories": {
     "test": "test"
-  },"scripts": {
+  },
+  "scripts": {
     "test": "ava test/index.js & http-server &  open http://localhost:8080/test/"
   },
   "repository": {
@@ -13,10 +14,11 @@
     "url": "git+https://github.com/copious-world/UCWID.git"
   },
   "keywords": [
-    "distributed",
+    "decentralized",
     "identity",
     "CWID",
-    "DID", "CID"
+    "DID",
+    "CID"
   ],
   "author": "Richard Leddy",
   "license": "MIT",
@@ -25,7 +27,15 @@
   },
   "homepage": "https://github.com/copious-world/UCWID#readme",
   "funding": {
-    "type" : "GitHub Sponsors",
-    "url" : "https://github.com/sponsors/copious-world"
+    "type": "GitHub Sponsors",
+    "url": "https://github.com/sponsors/copious-world"
+  },
+  "dependencies": {
+    "crypto-wraps": "^1.0.8",
+    "cwid": "^1.0.1"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "nyc": "^15.1.0"
   }
 }
