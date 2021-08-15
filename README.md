@@ -1,6 +1,6 @@
 # UCWID
 
- A distributed identity base on two **CWID**s and other information.
+ A distributed identity compontent based on two **CWID**s and other information.
  
  **UCWUID** stands for ***Ultimate*** **CWID**.
 
