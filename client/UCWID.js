@@ -10,6 +10,7 @@ export class UCWID {
         //
         this.cwid_service = new CWID()
         //
+        this.key_pack = false
         this.normalizer_wait = false
         this.normalizer_promise = false
         if ( (conf === undefined) || (conf.normalizer === undefined) ) {
@@ -62,10 +63,15 @@ export class UCWID {
         return [this.key_wait, this.key_promise]
     }
 
+    key_package() {
+        return this.key_pack
+    }
+
     //
     async provide_keys() {
         let key_pack = await cwraps.galactic_user_starter_keys("wrapper")
         this._wrapper_key = key_pack.pk_str
+        this.key_pack = key_pack
         return key_pack
     }
 
@@ -91,6 +97,7 @@ export class UCWID {
 
     //
     async ucwid(data) {
+        //
         let normalize = false
         let buf_as_str = false 
 
@@ -115,7 +122,6 @@ export class UCWID {
         // UCWID formation
         let wrapped_key = await cwraps.key_wrapper(aes_key,this._wrapper_key)
         //
-
         let [u_cwid,ucwid_packet] = await this.ucwid_constructor(clear_cwid,crypto_cwid)
         //
         return { "ucwid" : u_cwid, "info" : {
