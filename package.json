@@ -1,13 +1,15 @@
 {
   "name": "ucwid",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A distributed identity base on two **CWID**s and other information.",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "ava test/index.js & http-server &  open http://localhost:8080/test/"
+    "test": "ava test/index.js & http-server &  open http://localhost:8080/test/",
+    "untest" : "pkill -f http-server",
+    "postinstall": "bash tools/roll.sh "
   },
   "repository": {
     "type": "git",
@@ -31,8 +33,8 @@
     "url": "https://github.com/sponsors/copious-world"
   },
   "dependencies": {
-    "crypto-wraps": "^1.0.8",
-    "cwid": "^1.0.1"
+    "crypto-wraps": "^1.0.9",
+    "cwid": "^1.0.2"
   },
   "devDependencies": {
     "ava": "^3.15.0",

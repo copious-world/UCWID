@@ -112,9 +112,11 @@ export class UCWID {
 
         // clear ID
         let clear_cwid = await this.cwid_service.cwid(data)
-
+        let c_cwid_hash = clear_cwid.split('!')[1]
+console.log(c_cwid_hash)
         // crypto ID
-        let nonce = cwraps.gen_nonce()
+        let nonce = cwraps.gen_nonce(c_cwid_hash)
+console.log(nonce)
         let aes_key = await cwraps.gen_cipher_key()
         let cipher_text = await cwraps.encipher_message(buf_as_str,aes_key,nonce)
         let crypto_cwid = await this.cwid_service.cwid(cipher_text)
