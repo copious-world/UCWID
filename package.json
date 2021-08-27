@@ -1,6 +1,6 @@
 {
   "name": "ucwid",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "description": "A distributed identity base on two **CWID**s and other information.",
   "main": "index.js",
   "directories": {
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "ava test/index.js & http-server &  open http://localhost:8080/test/",
     "untest" : "pkill -f http-server",
-    "postinstall": "bash tools/roll.sh "
+    "postinstall": "bash tools/roll.sh $INIT_CWD"
   },
   "repository": {
     "type": "git",
