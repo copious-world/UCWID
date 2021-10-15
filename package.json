@@ -1,6 +1,6 @@
 {
   "name": "ucwid",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A distributed identity base on two **CWID**s and other information.",
   "main": "index.js",
   "directories": {
@@ -33,7 +33,7 @@
     "url": "https://github.com/sponsors/copious-world"
   },
   "dependencies": {
-    "crypto-wraps": "^1.0.9",
+    "crypto-wraps": "^1.1.1",
     "cwid": "^1.0.2"
   },
   "devDependencies": {
