@@ -1,10 +1,16 @@
 
-import {CWID} from './client/hashing.js';
-import * as cwraps from './client/crypto-wraps.js';
-import {to_base64_from_uint8array} from "./client/crypto-hash.js";
+//
+// MODULE: CRYPTO WRAPS (windowized)
+
+// >> import
+//modularize>> import {CWID} from './client/hashing.js';
+//modularize>> import * as cwraps from './client/crypto-wraps.js';
+//modularize>> import {to_base64_from_uint8array} from "./client/crypto-hash.js";
+//<<
 
 
-export class UCWID {
+//$>>	UCWID
+class UCWID {
     //
     constructor(conf) {
         //
@@ -13,37 +19,13 @@ export class UCWID {
         this.key_pack = false
         this.normalizer_wait = false
         this.normalizer_promise = false
-        if ( (conf === undefined) || (conf.normalizer === undefined) ) {
-            this.normalizer_wait = true
-            let p = new Promise((resolve,reject) => {
-                (async () => {
-                    const moduleSpecifier = './normalizers/unity.js';
-                    const module = await import(moduleSpecifier)
-                    const Normal = module.Unity
-                    this.normalizer = new Normal(conf)
-                    this.normalizer_wait = false
-                    resolve(true)
-                })();
-            })
-            this.normalizer_promise = p 
+        // For non module code not relying on a server to provide lazy import (Normalized must be specified)
+        if ( typeof this.normalizer === "function" ) {
+            this.normalizer = conf.normalizer(conf)
         } else {
-            if ( typeof conf.normalizer === 'string' ) {
-                this.normalizer_wait = true
-                let p = new Promise((resolve,reject) => {
-                    (async () => {
-                        const moduleSpecifier = conf.normalize;
-                        const module = await import(moduleSpecifier)
-                        const Normal = module[conf.class_name]
-                        this.normalizer = new Normal(conf)
-                        this.normalizer_wait = false
-                        resolve(true)
-                    })();
-                })
-                this.normalizer_promise = p 
-            } else if ( typeof this.normalizer === "function" ) {
-                this.normalizer = conf.normalizer(conf)
-            }
+            throw new Error("no normalizer")
         }
+        // 
         if ( (conf === undefined) || (conf._wrapper_key === undefined) ) {
             this.key_wait = true
             this.key_promise = new Promise((resolve,reject) => {
@@ -136,3 +118,10 @@ console.log(nonce)
     }
 }
 
+
+
+
+//$$EXPORTABLE::
+/*
+UCWID
+*/

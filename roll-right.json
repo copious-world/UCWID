@@ -1,0 +1,16 @@
+{
+    "modules" : {
+        "path_abreviations" : {
+            "[alpha-copious]" : "[github]/alphas/alpha-copious",
+            "[github]" : "~/Documents/GitHub"
+        },
+        "ext_default_dir" : {
+            ".html" : "[alpha-copious]/html",
+            ".js" : "[alpha-copious]/client",
+            ".svg" : "[alpha-copious]/icons"
+        },
+        "sources" : {
+            "client/ucwid.js" : "[alpha-copious]/client"
+        }
+    }
+}
