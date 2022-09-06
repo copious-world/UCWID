@@ -1,6 +1,6 @@
 {
   "name": "ucwid",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "A distributed identity base on two **CWID**s and other information.",
   "main": "index.js",
   "directories": {
