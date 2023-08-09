@@ -10,7 +10,7 @@ This code is separated out into a module of its own, in order to make it accessi
 
 In the explanation below, there are some details as to how a **UCWID** may be contstucted. The function that *marries* will require two **CWID**s and may use other information. It suffices to say that the function is variable, and that one of these such functions may enclose other data requirements, including a version number addressing data preparation prior to encryption, the kind of encryption, the kind of hashing, etc.
 
-Requirements on **UCWID** production functions will be defined. For now, let us expect that the **UCWID** will extend the prefixing of a **CWID**. So, that string representing a **UCWID** contains is a tripple demitted by an *exclamation point*, **!**.  The format will be as such:
+Requirements on **UCWID** production functions will be defined. For now, let us expect that the **UCWID** will extend the prefixing of a **CWID**. So, that string representing a **UCWID** contains is a tripple delmitted by an *exclamation point*, **!**.  The format will be as such:
 
 ```
 <data prep keys>!<base encoding and hashing keys>!<encode hash of data>
@@ -34,6 +34,30 @@ That is, given a combiner function **C**, a **CWID** will be made from the value
 ```
 
 While this module will not establish a registery of **UCWUID**s, it will generate them in such a way that they may be placed in a registry.
+
+## DID formation
+
+In this version, the data that is returned by the `ucwid` method includes a DID foratted field, 'did'. Internally, `ucwid_constructor` calls the CWID method `cwid_to_did`.
+
+```
+{
+		"ucwid" : u_cwid,
+		"did" : u_cwid_did,
+		"info" : {
+				"ucwid_packet" : ucwid_packet = {
+		            "clear_cwid" : clear_cwid,
+		            "crypto_cwid" : crypto_cwid
+		        },
+				"wrapped_key" : wrapped_key,
+				"nonce" : nonce,
+				"cipher_text" : cipher_text,
+				"type_original" : normalize ? "string" : "buffer"
+   		}}
+```
+
+In future versions, the DID document will be derived from included data.
+
+
 
 ## How to Use
 
@@ -172,6 +196,7 @@ For *unity*, the version method returns "0101". See the file, ***normalizers.jso
 ```
 {
 		"ucwid" : u_cwid,
+		"did" : u_cwid_did,
 		"info" : {
 				"ucwid_packet" : ucwid_packet = {
 		            "clear_cwid" : clear_cwid,
