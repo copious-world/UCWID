@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "crypto-wraps": "^1.1.2",
-    "cwid": "^1.0.4"
+    "cwid": "^1.0.8"
   },
   "devDependencies": {
     "ava": "^3.15.0",
